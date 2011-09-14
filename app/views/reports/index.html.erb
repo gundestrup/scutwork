@@ -1,0 +1,83 @@
+<h1><%= t('reports.head') %></h1>
+
+<!--
+<h2><%= t('reports.week_head') %></h2>
+<% spiffy_corners :generate_css => false do %>
+        <h3><%= t('reports.week_head') %></h3>
+        <% form_tag :controller => 'reports', :action => 'week', :user_id => @user.id do %>
+          <table>
+            <tr>
+              <td><b><%= (t('week').capitalize) %>:</b></td><td><%= calendar_date_select_tag "report[week]" %></td>
+            </tr>
+            <tr>
+              <td>
+                <%= submit_tag t('submit') %>
+              </td>
+            </tr>
+          </table>
+        <% end %>
+    <% end %>
+<%# end %>
+-->
+<h2><%= t('reports.month_head') %></h2>
+<%# if !@user.shifts.empty? %>
+<% spiffy_corners :generate_css => false do %>
+        <h3><%= t('reports.month_head') %></h3>
+        <% form_tag :controller => 'reports', :action => 'month', :user_id => @user.id do %>
+          <table>
+            <tr>
+              <td><b><%= (t('year').capitalize) %>:</b></td><td><%= select_year(Date.today, :field_name => 'year') %></td>
+            </tr>
+            <tr>
+              <td><b><%= (t('month').capitalize) %>:</b></td><td><%= select_month(Date.today, :field_name => 'month') %></td>
+            </tr>
+            <tr>
+              <td>
+                <%= submit_tag t('submit') %>
+              </td>
+            </tr>
+          </table>
+        <% end %>
+    <% end %>
+<%# end %>
+<h2><%= t('reports.year_head') %></h2>
+<% spiffy_corners :generate_css => false do %>
+        <h3><%= t('reports.year_head') %></h3>
+        <% form_tag :controller => 'reports', :action => 'year', :user_id => @user.id do %>
+          <table>
+            <tr>
+              <td><b><%= (t('year').capitalize) %>:</b></td><td><%= select_year(Date.today, :field_name => 'year') %></td>
+            </tr>
+            <tr>
+              <td>
+                <%= submit_tag t('submit') %>
+              </td>
+            </tr>
+          </table>
+        <% end %>
+    <% end %>
+<%# end %>
+
+<h2><%= t('reports.norm_head') %></h2>
+<% spiffy_corners :generate_css => false do %>
+        <h3><%= t('reports.norm_head') %></h3>
+        <% form_tag :controller => 'reports', :action => 'norm' do %>
+          <table>
+            <tr>
+              <td><b><%= (t('start').capitalize) %>:</b></td>
+              <td><%= calendar_date_select_tag "date[start]" %></td>
+            </tr>
+            <tr>
+              <!-- #Lav select liste 4-26 uger, evt gemme felt i brugeren -->
+              <td><b><%= (t('normduration').capitalize) %>:</b></td>
+              <td><%= text_field(:date, :normduration)  %></td>
+            </tr>
+            <tr>
+              <td>
+                <%= submit_tag t('submit') %>
+              </td>
+            </tr>
+          </table>
+        <% end %>
+    <% end %>
+<%# end %>

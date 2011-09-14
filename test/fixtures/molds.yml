@@ -1,0 +1,22 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  start_time: 08:00:00
+  end_time: 23:00:00
+  user: one
+  place: MyPlace1User1
+
+two:
+  name: MyString2
+  start_time: 08:00:00
+  end_time: 15:00:00
+  user: one
+  place: MyPlace1User1
+
+tree:
+  name: MyString1
+  start_time: 08:00:00
+  end_time: 15:00:00
+  user: two
+  place: MyPlace1User2

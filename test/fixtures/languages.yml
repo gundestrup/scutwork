@@ -1,0 +1,10 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+dansk:
+  name: da
+  description: Dansk
+
+english:
+  #id: 2
+  name: en
+  description: english

@@ -1,0 +1,15 @@
+<% form_for [@user, @feed] do |f| %>
+  <%= f.error_messages %>
+  
+  <p>
+    <%= f.label :expire %><br />
+    <%= f.date_select :expire %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit t('submit') %>
+  </p>
+<% end %>

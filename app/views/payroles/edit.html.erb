@@ -1,0 +1,6 @@
+<%= tabnav :shift_actions %>
+<h1><%= t('payrole.edit') %></h1>
+
+<%= render :partial => 'form' -%>
+
+<%= link_to t('back'), user_shift_path(@user, @shift) %>

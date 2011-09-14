@@ -1,0 +1,72 @@
+= Scutwork
+
+Scutwork is a time/pay management system, developed for danish doctors, but can be adapeted to any need.
+It can export the data in 
+* ical
+* xls
+
+It also contains reports of different periodes.
+
+== Dependencies
+
+icalendar
+pickle
+faker
+cucumber
+mashinist
+
+mysql
+
+== Setup
+
+Change the database.example.xml to database.xml and correct the info to your likings
+run the rake script
+rake db:migrate
+login, and register the first user.
+Remember to activate
+
+Access the database, and change the users admin from 0 to 1, to make the person admin.
+
+== Models explanation
+=== configuration
+
+Holds if the user can login and or sigup
+
+=== Language
+
+Holds the configuration for the possiable (installed) languages
+
+=== Place
+
+This holds where the work(shift) took place
+
+=== User
+
+This is the user, with email, login and so on
+
+=== Pay
+
+This holds the different pays the user has created
+
+=== Shift
+
+This hold a combination of start date+time and end date+time, a user and a place.
+A UUID is also automaticly created, for ical.
+
+=== Payrole
+
+This holds a combination of  pays + hours related to a shift
+
+=== Mold
+
+This holds the template for the differen standart shifts
+
+=== Paymaster
+
+This holds a template of pays for a mold
+
+
+=== UserMailer
+Different mailers
+=== UserObserver
+What observes and send out mails

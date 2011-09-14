@@ -1,0 +1,30 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyNameAdmin
+  email: my@email.dk
+  login: MyLogin
+  activated_at: Time.now
+  language: english
+  admin: true
+  access_code: kjUxjapZoPQqocuLsssWxPDQfKBVjCtdHCJpjpqniCZmOPowASF
+
+two:
+  name: MyName2Normal
+  email: my2@email.dk
+  login: MyLogin2
+  activated_at: Time.now
+  language: english
+  admin: false
+  access_code: brKFGvSAGitUOZlPayPhsSDQEWoSZkEZLPNLlAdDeasiMKoMeTn
+  reset_code: 78da8b05fb8d20319d915f78b9c8994d2ca28e38
+
+tree:
+  name: MyName3Normal
+  email: my3@email.dk
+  login: MyLogin3NotActive
+  activation_code: a21a0c80ccf6c8843cd07b6c792ff8c33a8a34d9
+  language: dansk
+  admin: false
+  access_code: OnfaYxnuQUCtFjFdaoCJYrIZrkidIRCuSVIaajxmkXJHeyfuoGm
+  

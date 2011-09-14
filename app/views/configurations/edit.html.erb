@@ -1,0 +1,19 @@
+<h1>Editing configuration</h1>
+
+<% form_for(@configuration) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :sign_up %><br />
+    <%= f.check_box :sign_up %>
+  </p>
+  <p>
+    <%= f.label :login %><br />
+    <%= f.check_box :login %>
+  </p>
+  <p>
+    <%= f.submit t('update') %>
+  </p>
+<% end %>
+
+<%= link_to t(:back), configurations_path %>

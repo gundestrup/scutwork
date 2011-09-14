@@ -1,0 +1,45 @@
+    <% form_for [@user, @shift] do |f| %>
+  <%= f.error_messages %>
+    <table>
+      <tr>
+        <td><%= f.label :start %></td>
+        <td>
+          <%= calendar_date_select_tag "shift[start]", @shift.start, :time => true, :minute_interval => 15 %>
+            <% tooltip do %>
+              <%= t('shift.tip_time') %>
+            <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td><%= f.label :end %></td>
+        <td>
+          <%= calendar_date_select_tag "shift[end]", @shift.end, :time => true, :minute_interval => 15 %>
+            <% tooltip do %>
+              <%= t('shift.tip_time') %>
+            <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td><%= f.label :place_name %></td>
+        <td>
+          <%= text_field_with_auto_complete :shift, :place_name, { :size => 20 }, { :url => user_places_path(@user, :js), :method => :get, :param_name => 'search' } %>
+          <% tooltip do %>
+              <%= t('shift.tip_place') %>
+          <% end %>
+        </td>
+      </tr>      
+      <tr>
+        <td><%= f.label :active %></td>
+        <td>
+        <%= f.check_box :active %>
+           <% tooltip do %>
+             <%= t('shift.tip_active') %><br/>
+           <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2"><%= f.submit t("submit") %></td>
+      </tr>
+    </table>
+
+<% end %>

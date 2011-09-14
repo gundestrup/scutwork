@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+      <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+      <title>Scutwork: <%= controller.controller_name %> - <%= controller.action_name %></title>
+      <%= stylesheet_link_tag 'application' %>
+      <%= javascript_include_tag :defaults %>
+      <%= calendar_date_select_includes "silver", :locale => I18n.locale %>
+    </head>
+    <body>
+        <% tabnav :main do %>
+            <p style="color: green"><%= flash[:notice] %></p>
+            <p style="color: red"><%= flash[:error] %></p>
+            <%= yield  %>
+        <% end %>
+    <div>
+      <%= t('created_by') %><br/>
+      <%= t('report_problem') %> <a href="http://borg-collective.eu:8180/jira/browse/SCUT"><%= t('report_problem_here') %></a><br/>
+      <a href="http://www.thefreedictionary.com/scut+work">scut work - trivial, unrewarding, tedious, dirty, and disagreeable chores</a>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  #id: 1
+  start: 2009-11-14 08:00:00
+  end: 2009-11-14 16:00:00
+  place: MyPlace1User1
+  user: one
+  active: true
+
+two:
+  #id: 2
+  start: 2009-11-15 08:00:00
+  end: 2009-11-15 16:00:00
+  place: MyPlace1User1
+  user: one
+  active: true
+
+tree:
+  #id: 3
+  start: 2009-11-15 08:00:00
+  end: 2009-11-15 16:00:00
+  place: MyPlace1User2
+  user: two
+  active: true
+

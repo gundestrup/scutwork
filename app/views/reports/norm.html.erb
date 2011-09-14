@@ -1,0 +1,6 @@
+<h1><%= t('reports.norm_head') %></h1>
+<%= t('start_date') %>: <%= @start %><br/>
+<%= t('end_date') %>: <%= @enddate %><br/>
+<%= t('duration_weeks') %>:<%= @normduration %>(<%= @normduration*7 %>)<br/>
+<%= render :partial => 'shifts' -%>
+<br/>

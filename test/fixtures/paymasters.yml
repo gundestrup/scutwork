@@ -1,0 +1,16 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  mold: one
+  pay: one
+  hours: 100
+
+two:
+  mold: two
+  pay: two
+  hours: 1100
+
+tree:
+  mold: tree
+  pay: tree
+  hours: 1100

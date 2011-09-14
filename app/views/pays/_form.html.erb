@@ -1,0 +1,65 @@
+<% form_for [@user, @pay] do |f| %>
+  <%= f.error_messages %>
+  <table>
+    <tr>
+      <td><%= f.label :start_date %></td>
+      <td>
+        <%= f.date_select :start_date %>
+            <% tooltip do %>
+              <%= t('pay.tip_time') %>
+            <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td><%= f.label :end_date %></td>
+      <td>
+        <%= f.date_select :end_date %>
+            <% tooltip do %>
+              <%= t('pay.tip_time') %>
+            <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td><%= f.label :active %></td>
+      <td>
+        <%= f.check_box :active %>
+            <% tooltip do %>
+              <%= t('pay.tip_active') %><br/>
+            <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td><%= f.label :name %></td>
+      <td>
+        <%= f.text_field :name %>
+            <% tooltip do %>
+              <%= t('pay.tip_name') %><br/>
+            <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td><%= f.label :description %></td>
+      <td>
+        <%= f.text_area :description, :size => "26x10" %>
+            <% tooltip do %>
+              <%= t('pay.tip_description') %><br/>
+            <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td><%= f.label :rate %></td>
+      <td>
+        <%= f.text_field :rate %>
+            <% tooltip do %>
+              <%= t('pay.tip_rate') %>
+            <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <%= f.submit t("submit") %>
+      </td>
+    </tr>
+  </table>
+
+<% end %>

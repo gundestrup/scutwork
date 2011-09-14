@@ -1,0 +1,72 @@
+<%  
+
+render_tabnav :main, 
+              :generate_css => false do 
+
+
+      add_tab do |t|
+        t.named t('tab.main.home')
+        t.links_to user_path(@user)
+        t.highlights_on :controller => 'users', :action => 'show'
+        t.highlights_on :controller => 'users', :action => 'edit'
+        t.highlights_on :controller => 'feeds'
+      end if logged_in?
+
+
+      add_tab do |t|
+        t.named t('tab.main.shifts')
+        t.links_to user_shifts_path(@user)
+        t.highlights_on :controller => 'shifts'
+        t.highlights_on :controller => 'places'
+        t.highlights_on :controller => 'pays'
+        t.highlights_on :controller => 'molds'
+
+      end if logged_in? if @user.present?
+      
+
+      add_tab do |t|
+        t.named t('tab.main.logout')+current_user.name
+        t.links_to '/logout'
+      end if logged_in?
+
+      add_tab do |t|
+        t.named t('tab.main.admin')
+        t.links_to hash_for_configurations_path
+        t.highlights_on :controller => 'languages'
+      end if logged_in? && current_user.admin?
+
+      add_tab do |t|
+        t.named t('tab.main.users')
+        t.links_to hash_for_users_path
+        t.highlights_on :controller => 'users', :action => 'index'
+      end if logged_in? && current_user.admin?
+
+
+      add_tab do |t|
+        t.named t('tab.main.login')
+        t.links_to '/login'
+        t.highlights_on :controller => 'sessions'
+      end if !logged_in?
+
+      add_tab do |t|
+        t.named t('tab.main.signup')
+        t.links_to '/signup'
+        t.highlights_on :controller => 'users', :action => 'new'
+      end if $config.sign_up? && !logged_in?
+
+      add_tab do |t|
+        t.named t('tab.main.reports')
+        t.links_to user_reports_path(@user)
+        t.highlights_on :controller => 'reports'
+      end if logged_in?
+
+
+      add_tab do |t|
+        t.named t('tab.main.help')
+        t.links_to :controller => 'helps', :action => 'getting_started'
+        t.highlights_on :controller => 'helps'
+      end
+
+
+end 
+%>

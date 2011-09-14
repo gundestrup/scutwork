@@ -1,0 +1,35 @@
+<%= tabnav :admins %>
+<h1>Listing configurations</h1>
+
+<table>
+  <tr>
+    <th><%=t 'configuration.signup' %></th>
+    <th><%=t 'configuration.login' %></th>
+  </tr>
+
+<% for configuration in @configurations %>
+  <tr>
+    <td><%=h configuration.sign_up %></td>
+    <td><%=h configuration.login %></td>    
+    <td><%= link_to t(:edit), edit_configuration_path(configuration) %></td>    
+  </tr>
+<% end %>
+</table>
+
+<h1><%= t('language.listing') %></h1>
+<table>
+  <tr>
+    <th><%= (t('name')).capitalize %></th>
+    <th><%= (t('description')).capitalize %></th>
+  </tr>
+
+<% for language in @languages %>
+  <tr>
+    <td><%=h language.name %></td>
+    <td><%=h language.description %></td>
+    <td><%= link_to t(:edit), edit_language_path(language) %> | </td>
+	<td><%= link_to t(:destroy), language_path(language), :confirm => t(:are_you_sure), :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<%= link_to t('language.new'), new_language_url %>

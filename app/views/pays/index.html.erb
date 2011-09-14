@@ -1,0 +1,50 @@
+<%= tabnav :shift_actions %>
+<h1><%= t('pay.listing') %></h1>
+<%= link_to t('pay.created_mold'), :controller => "builders", :action => "pay_kbu", :user_id => @user.id %>
+<table>
+  <tr>
+    <th><%= t('pay.name') %></th>
+    <th><%= t('pay.start_date') %></th>
+    <th><%= t('pay.end_date') %></th>
+    <td><%= t('pay.active') %></td>
+    <td><%= t('pay.rate') %></td>
+  </tr>
+
+<% for pay in @pays.active %>
+  <tr>
+    <td><%= link_to pay.name, user_pay_path(@user, pay) %></td>
+    <td><%=h pay.start_date %></td>
+    <td><%=h pay.end_date %></td>
+    <td><%=h pay.active %></td>
+    <td align="right"><%=h dkk(pay.rate) %></td>    
+    <td><%= link_to t('edit'), edit_user_pay_path(@user, pay) %></td>
+    <td><%= link_to t('destroy'), user_pay_path(@user, pay), :confirm => t('are_you_sure'), :method => :delete %></td>
+  </tr>
+  <tr>
+	<td colspan="5"><%= pay.description %></td>
+  </tr>
+<% end %>
+<tr>
+	<td colspan="5"><hr></td>
+<tr/>
+<% for pay in @pays.deactive %>
+  <tr>
+    <td><%= link_to pay.name, user_pay_path(@user, pay) %></td>
+    <td><%=h pay.start_date %></td>
+    <td><%=h pay.end_date %></td>
+    <td><%=h pay.active %></td>
+    <td align="right"><%=h dkk(pay.rate) %></td>    
+    <td><%= link_to t('edit'), edit_user_pay_path(@user, pay) %></td>
+    <td><%= link_to t('destroy'), user_pay_path(@user, pay), :confirm => t('are_you_sure'), :method => :delete %></td>
+  </tr>
+  <tr>
+	<td colspan="5"><%= pay.description %></td>
+  </tr>
+<% end %>
+
+</table>
+
+<br />
+
+<%= link_to t('pay.new'), new_user_pay_path(@user) %> |
+<%= link_to t('back'), user_path(@user) %>

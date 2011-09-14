@@ -1,0 +1,29 @@
+<% form_for [@user, @mold, @paymaster] do |f| %>
+  <%= f.error_messages %>
+  <table>
+    <tr>
+      <td>
+        <%= f.label :pay_id %>:
+      </td>
+      <td>
+        <%= f.collection_select :pay_id, @user.pays(:all), :id, :namerate %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :hours %>:
+        <% tooltip do %>
+                <p>
+                  <%= t('payrole.tip_hours') %>
+                </p>
+            <% end %>
+      </td>
+      <td>
+        <%= f.text_field :hours, :size => 4 %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2"><%= f.submit t('submit') %></td>
+    </tr>
+  </table>
+<% end %>

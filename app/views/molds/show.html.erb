@@ -1,0 +1,51 @@
+<%= tabnav :shift_actions %>
+<%= link_to t('edit'), edit_user_mold_path(@user, @mold) %> |
+<%= link_to t('back'), user_molds_path %> |
+<%= link_to t('mold.new'), new_user_mold_path(@user) %>
+<table>
+  <tr>
+    <td><b><%=t ('mold.name')  %>:</b></td><td><%=h @mold.name %></td>
+  </tr>
+  <tr>
+    <td><b><%= (t('start')).capitalize %>:</b></td><td><%=h dkkhour(@mold.start_time) %></td>
+  </tr>
+  <tr>
+    <td><b><%= (t('end')).capitalize %>:</b></td><td><%=h dkkhour(@mold.end_time) %></td>
+  </tr>
+ <tr>
+   <td><b><%= t('mold.duration') %>:</b></td><td><%= seconds_to_time(@mold.duration_hours+@mold.duration_minutes) %> (<%= hours(@mold.duration) %>)</td>
+ </tr>
+  <tr>
+    <td><b><%= t('pay.pay') %>:</b></td><td><%= dkk(Mold.paytotal(@mold.id)) %></td>
+  </tr>
+  <tr>
+    <td><b><%= t('mold.user') %>:</b></td><td><%=h @mold.user.name %></td>
+  </tr>
+
+  <tr>
+    <td><b><%= (t('place.place')).capitalize %>:</b></td><td><%=h @mold.place.name %></td>
+  </tr>
+</table>
+
+<% spiffy_corners :generate_css => true do %>
+<h3><%= t('mold.add_pay_to_mold') %></h3>
+<%= render :partial => 'paymasters/form' -%>
+ <% end %>
+
+<table>
+  <% for master in @mold.paymasters(:all) %>
+  <tr>
+    <td>
+        <%= master.pay.name %>:
+    </td>
+    <td align="right">
+      <%= hours(master.hours) %> <%= t('hours') %>
+    </td>
+    <td>
+      <%= link_to t('edit'), edit_user_mold_paymaster_path(@user, @mold, master) %> |
+      <%= link_to t('destroy'), user_mold_paymaster_path(@user, @mold, master), :confirm => t('are_you_sure'), :method => :delete %>
+    </td>
+
+  </tr>
+  <% end %>
+</table>

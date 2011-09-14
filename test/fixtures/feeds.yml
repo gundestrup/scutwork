@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user: one
+  expire: 2018-05-13
+  name: MyString
+  access_code: MyString
+
+one_expire:
+  user: one
+  expire: 2011-05-13
+  name: MyString2
+  access_code: MyString
+
+two:
+  user: two
+  expire: 2018-05-13
+  name: MyString3
+  access_code: MyString
+
+two_expire:
+  user: two
+  expire: 2011-05-13
+  name: MyString4
+  access_code: MyString

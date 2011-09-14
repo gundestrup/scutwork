@@ -1,0 +1,39 @@
+<%= tabnav :user %>
+<h1><%= t('feed.head') %></h1>
+<%= t('feed.help') %>
+<br/>
+<br/>
+<table>
+  <tr>
+    <th><%= t('feed.expire') %></th>
+    <th><%= t('feed.name') %></th>
+    <th><%= t('feed.link') %></th>
+    <th colspan="2"><%= t('feed.actions') %></th>
+  </tr>
+
+<% @feeds.each do |feed| %>
+  <tr bgcolor='
+    <%=
+    if !feed.active
+      '#FF3300'
+    else
+      '#FFFFFF'
+    end
+    %>'>
+    <td><%=h feed.expire %></td>
+    <td><%=h feed.name %></td>    
+    <td>
+          <a href="<%= request.protocol %><%= request.host_with_port %>/calendars/index?feed_id=<%= feed.id %>&access_code=<%= feed.access_code %>"><%= t('users.feed_ical') %></a> |
+          <a href="<%= request.protocol %><%= request.host_with_port %>/calendars/google?feed_id=<%= feed.id %>&access_code=<%= feed.access_code %>"><%= t('users.feed_google') %></a> |
+          <a href="<%= request.protocol %><%= request.host_with_port %>/calendars/excel?feed_id=<%= feed.id %>&access_code=<%= feed.access_code %>"><%= t('users.feed_excel') %></a> |
+        </td>
+    <td><%= link_to t('edit'), edit_user_feed_path(@user, feed) %></td>
+    <td><%= link_to t('destroy'), user_feed_path(@user, feed), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+
+<% end %>
+</table>
+
+<br />
+
+<%= link_to t('feed.new'), new_user_feed_path(@user) %>

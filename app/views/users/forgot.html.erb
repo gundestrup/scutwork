@@ -1,0 +1,19 @@
+<%= error_messages_for :user %>
+
+<% form_for :user do |f| -%>
+  <p>
+    <%= t('users.reset_request') %>
+  </p>
+
+
+  <p>
+    <label for="email"><%= t('email') %></label><br />
+    <%= f.text_field :email %>
+  </p>
+
+
+  <p>
+    <%= link_to t('cancel'), login_path %>
+    <%= submit_tag t('submit') %>
+  </p>
+<% end -%>

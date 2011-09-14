@@ -1,0 +1,7 @@
+<%= tabnav :shift_actions %>
+<h1><%= t('place.edit') %></h1>
+
+<%= render :partial => 'form' -%>
+
+<%= link_to t('show'), user_place_path(@user, @place) %> |
+<%= link_to t('back'), user_places_path(@user) %>

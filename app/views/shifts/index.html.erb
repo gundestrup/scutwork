@@ -1,0 +1,14 @@
+<%= tabnav :shift_actions %>
+
+  <%= render :partial => 'molds/shift_generator' -%>
+  <%= link_to t('shift.new'), new_user_shift_path(@user) %>
+<h1><%= t('shift.listing') %></h1>
+
+<div id="list">
+    <%= render :partial => 'shifts/shifts' -%>
+</div>
+
+<br />
+<%= render :partial => 'molds/shift_generator' -%>
+
+<%= link_to t('shift.new'), new_user_shift_path(@user) %>

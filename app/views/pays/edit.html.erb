@@ -1,0 +1,7 @@
+<%= tabnav :shift_actions %>
+<h1><%= t('pay.edit') %></h1>
+
+<%= render :partial => 'form' -%>
+
+<%= link_to t('show'), user_pay_path(@user) %> |
+<%= link_to t('back'), user_path(@user) %>

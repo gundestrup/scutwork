@@ -1,0 +1,16 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+MyPlace1User1:
+  #id: 1
+  name: MyPlace1User1
+  user: one
+
+MyPlace2User1:
+  #id: 2
+  name: MyPlace2User1
+  user: one
+
+MyPlace1User2:
+    #id: 3
+    name: MyPlace1User2
+    user: two

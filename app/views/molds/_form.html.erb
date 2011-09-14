@@ -1,0 +1,21 @@
+<% form_for [@user, @mold] do |f| %>
+  <%= f.error_messages %>
+    <table>
+      <tr>
+        <td><%= f.label :name %></td><td><%= f.text_field :name %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :start_time %></td><td><%= f.time_select :start_time, {:minute_step => 1} %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :end_time %></td><td><%= f.time_select :end_time, {:minute_step => 1} %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :place_id %></td><td><%= text_field_with_auto_complete :mold, :place_name, { :size => 15 }, { :url => user_places_path(@user, :js), :method => :get, :param_name => 'search' } %></td>
+      </tr>
+      <tr>
+        <td colspan="2"><%= f.submit t('submit') %></td>
+      </tr>
+    </table>
+  
+<% end %>

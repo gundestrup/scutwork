@@ -1,0 +1,42 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user: one
+  start_date: 2009-11-14
+  end_date: 2009-11-15
+  active: true
+  name: one
+  rate: 100
+  description: "100"
+  #id: 1
+two:
+  user: one
+  start_date: 2009-11-14
+  end_date: 2009-11-15
+  active: true
+  name: two
+  rate: 200
+  description: "200"
+  #id: 2
+ 
+ #Users 2's pays 
+tree:
+  #id: 3
+  user: two
+  start_date: 2009-11-14
+  end_date: 2009-11-15
+  active: true
+  name: one
+  rate: 100
+  description: "100"
+  
+
+four:
+  #id: 4
+  user: two
+  start_date: 2009-11-14
+  end_date: 2009-11-15
+  active: true
+  name: two
+  rate: 200
+  description: "200"

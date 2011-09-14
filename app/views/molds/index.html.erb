@@ -1,0 +1,30 @@
+<%= tabnav :shift_actions %>
+<h1><%=t ('mold.list')  %></h1>
+
+<table>
+  <tr>
+    <th><%=t ('mold.name') %></th>
+    <th><%=t ('mold.time') %></th>
+    <th><%=t ('mold.duration_and_pay') %></th>    
+    <th><%=(t ('place.place')).capitalize %></th>
+  </tr>
+
+<% for mold in @molds %>
+  <tr class="<%= Mold.paymastertest(mold.id) %>">
+    <td><%= link_to mold.name, user_mold_path(@user, mold) %></td>
+    <td><%= dkkhour(mold.start_time) %><br/>
+    <%= dkkhour(mold.end_time) %></td>
+    <td align="center"><%=h hours(mold.duration) %> <%= t('hours') %><br/> (<%= dkk(Mold.paytotal(mold.id)) %>)</td>
+    <td><%=h mold.place.name %></td>        
+    <td><%= link_to t('edit'), edit_user_mold_path(@user, mold) %></td>
+    <td><%= link_to t('destroy'), user_mold_path(@user, mold), :confirm => t('are_you_sure'), :method => :delete %></td>    
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to t('mold.new'), new_user_mold_path %>
+<% if !@user.molds.empty? %>
+    <%= render :partial => 'shift_generator' -%>
+<% end %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  shift: one
+  pay: one
+  hours: 1000
+
+two:
+  shift: two
+  pay: one
+  hours: 500

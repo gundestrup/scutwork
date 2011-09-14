@@ -1,0 +1,21 @@
+<%= tabnav :shift_actions %>
+<h1><%= t('place.listing') %></h1>
+
+<table>
+  <tr>
+    <th><%= (t('name')).capitalize %></th>    
+  </tr>
+
+<% for place in @places %>
+  <tr>
+    <td><%= link_to place.name, user_place_path(@user, place) %></td>
+    <td><%= link_to t('edit'), edit_user_place_path(@user, place) %></td>
+    <td><%= link_to t('destroy'), user_place_path(@user, place), :confirm => t('are_you_sure'), :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to t('place.new'), new_user_place_path(@user) %> |
+<%= link_to t('back'), user_path(@user) %>

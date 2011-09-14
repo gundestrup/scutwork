@@ -1,0 +1,44 @@
+<%= tabnav :shift_actions %>
+<table>
+  <tr>
+    <td><b><%= t('start') %>:</b></td><td><%=h dkktime(@shift.start) %></td>
+  </tr>
+  <tr>
+    <td><b><%= t('end') %>:</b></td><td><%=h dkktime(@shift.end) %></td>
+  </tr>
+  <tr>
+    <td><b><%= t('place.place') %>:</b></td><td><%=h @shift.place.name %> | <%= hours(Shift.duration(@shift.id)) %> <%= t('hours') %></td>
+  </tr>
+  <tr>
+    <td><b><%= t('sum') %>:</b></td><td><%= dkk(Shift.paytotal(@shift.id)) %></td>
+  </tr>
+</table>
+
+<%= link_to t('edit'), edit_user_shift_path(@user, @shift) %> |
+<%= link_to t('back'), user_path(@user) %> |
+<%= link_to t('destroy'), user_shift_path(@user, @shift), :confirm => t('are_you_sure'), :method => :delete %> |
+<%= link_to t('add_hours'), new_user_shift_payrole_path(@user, @shift) %>
+<br/>
+<table>
+  <tr>
+    <th><%= t('name') %></th><th><%= t('hours') %></th><th><%= t('money') %></th>
+  </tr>
+<%for t in @payroles %>
+ <tr class="<%= Payrole.shifttest(@shift.id, t) %>">
+   <td><%= t.pay.name %>
+     <% tooltip do %>
+  <p><%= t.pay.description %></p>
+<% end %>
+   </td>
+   <td align="right" width="60"><%= hours(t.hours) %>
+     <% tooltip do %>
+        <p>
+          <%= t('shift.tip_hours') %>
+        </p>
+      <% end %>
+   </td>
+   <td align="right" width="100"><%= dkk(Payrole.money(t.id)) %></td>
+   <td>	&nbsp; <%= link_to t('edit'), edit_user_shift_payrole_path(@user, @shift, t.id) %> | <%= link_to t('destroy'), user_shift_payrole_path(@user, @shift, t.id), :confirm => t('are_you_sure'), :method => :delete %></td>
+ </tr>
+<% end %>    
+</table>

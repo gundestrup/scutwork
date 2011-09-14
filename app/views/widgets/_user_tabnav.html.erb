@@ -1,0 +1,23 @@
+<%
+
+render_tabnav :main,
+              :generate_css => false do
+
+
+      add_tab do |t|
+        t.named t('tab.main.home')
+        t.links_to user_path(@user)
+        t.highlights_on :controller => 'users', :action => 'show'
+        t.highlights_on :controller => 'users', :action => 'edit'
+      end if logged_in?
+
+
+      add_tab do |t|
+        t.named t('tab.calendar.remote')
+        t.links_to user_feeds_path(@user)
+        t.highlights_on :controller => 'feeds'        
+
+      end if logged_in? if @user.present?
+
+end
+%>

@@ -1,0 +1,24 @@
+<%= tabnav :shift_actions %>
+<p>
+  <b><%= (t('name')).capitalize %>:</b>
+  <%=h @place.name %> | <%= @place.user.name %>
+</p>
+<br/>
+
+<%= link_to t('edit'), edit_user_place_path(@user, @place) %> |
+<%= link_to t('back'), user_places_path(@user) %> |
+<%= link_to t('new'), new_user_place_path(@user) %> ||
+<%= t('place.shift_show') %>:
+<%= link_to t('all'), :active  => 'all'%> |
+<%= link_to t('active_not'), :active  => '0'%> |
+<%= link_to t('active'), :active  => '1'%>
+<table>
+  <tr>
+    <th></th>
+  </tr>
+  <% for shift in Place.shifts(@place.id, params[:active])  %>
+  <tr>
+    <td><%= link_to dkktime(shift.start), user_shift_path(@user, shift) %> - <%= link_to dkktime(shift.end), user_shift_path(@user, shift) %></td>
+  </tr>
+  <% end %>
+</table>

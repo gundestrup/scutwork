@@ -1,0 +1,29 @@
+<% if !@user.molds.empty? %>
+<% spiffy_corners :generate_css => false do %>
+        <h3><%= t('mold.shift_generator_head') %></h3>
+        <% form_tag(:controller => 'builders', :action => 'shift') do %>
+          <table>
+            <tr>
+              <td><b><%= (t('start').capitalize) %>:</b></td>
+              <td><%= calendar_date_select_tag "mold[start]" %></td>
+            </tr>
+            <tr>
+              <td><b><%= (t('mold.mold')).capitalize %>:</b></td>
+              <td><select name="mold[mold_id]">
+                     <% @user.molds.each do |mold| %>
+                     <option value="<%= mold.id %>">
+                     <%= mold.name + ' ('+mold.place.name+')' %>
+                     </option>
+                     <% end %>
+                 </select>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= submit_tag t('submit') %>
+              </td>
+            </tr>
+          </table>
+        <% end %>
+    <% end %>
+<% end %>

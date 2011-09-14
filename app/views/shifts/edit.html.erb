@@ -1,0 +1,7 @@
+<%= tabnav :shift_actions %>
+<h1><%= t('shift.edit') %></h1>
+
+<%= render :partial => 'form' -%>
+
+<%= link_to t('show'), user_shift_path(@user, @shift) %> |
+<%= link_to t('back'), user_path(@user) %>

@@ -1,0 +1,45 @@
+<% @shift_places.each do |place, shifts| %>
+    <h2><%= place %></h2>
+    <table>
+      <tr class="rowB">
+        <th><%= t('pay.listing') %></th>
+        <th><%= t('units') %></th>
+        <th><%= t('shift.date_and_time') %></th>
+        <th><%= t('shift.duration') %></th>
+      </tr>
+    <% shifts.each do |shift| %>
+          <% if @week.nil? then @week = shift.start.strftime('%W')  %>
+              <tr class="reporttablehead">
+                <th colspan="4"><%= t('reports.week_head') %> <%= shift.start.strftime('%W') %></th>
+              </tr>
+          <% else %>
+              <% if @week != shift.start.strftime('%W') %>
+                  <tr>
+                    <td>&nbsp;</td>
+                  </tr>
+              <tr class="reporttablehead">
+                <th colspan="4"><%= t('reports.week_head') %> <%= shift.start.strftime('%W') %></th>
+              </tr>
+              <% end %>
+          <% end %>
+        <% shift.payroles(:order => "hours DESC").each do |payrole| %>
+          <tr class="<%= cycle('rowA', 'rowB') %>">
+              <td><b><%= payrole.pay.name %></b> </td>
+              <td align="right"><%= hours(payrole.hours) %></td>
+              <td><%= h dkktimeweek(payrole.shift.start) %><br/>
+                  <%= h dkktimeweek(payrole.shift.end) %>
+              </td>
+            <td align="right">
+              <%= hours(Shift.duration(payrole.shift.id)) %>
+            </td>
+          </tr>           
+        <% end %>
+          <% @week = shift.start.strftime('%W') %>
+    <% end %>
+
+    </table>
+<% end %>
+
+<br/>
+<%= t('reports.hours_periode') %>: <%= hours(Shift.durationTotalInPeriode(@shifts)) %><br/>
+<%= t('reports.hours_to_weeks') %>: (<%= ((hours(Shift.durationTotalInPeriode(@shifts)).to_f)/37).round(1) %>)

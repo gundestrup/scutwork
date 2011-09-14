@@ -1,0 +1,95 @@
+<%= tabnav :user %>
+
+<% if @user.pays.empty? or @user.places.empty? or @user.shifts.empty?%>
+<span class="adminbox">
+  <%= render 'helps/getting_started' -%>
+</span>
+<% end %>
+<table>
+  <tr>
+    <td><b><%= (t('name')).capitalize %>:</b></td><td><%=h @user.name %></td><td><%= link_to t('edit'), edit_user_path(@user) %></td>
+  </tr>
+  <tr>
+    <td><b><%= (t('email')).capitalize %>:</b></td><td><%=h @user.email %></td>
+  </tr>
+      <% if !@user.shifts.empty? %>
+      <tr>  
+        <td><%= t('feeds') %>:</td>
+        <td>
+          <a href="<%= request.protocol %><%= request.host_with_port %>/calendars/index?user_id=<%= @user.id %>&access_code=<%= @user.access_code %>"><%= t('users.feed_ical') %></a> |
+          <a href="<%= request.protocol %><%= request.host_with_port %>/calendars/google?user_id=<%= @user.id %>&access_code=<%= @user.access_code %>"><%= t('users.feed_google') %></a> |
+          <a href="<%= request.protocol %><%= request.host_with_port %>/calendars/excel?user_id=<%= @user.id %>&access_code=<%= @user.access_code %>"><%= t('users.feed_excel') %></a>
+        </td>
+      </tr>
+    <% end %>
+    <%= link_to t('users.change_calendar_token'), :action => 'reset_access', :id => @user.id  %>
+  <tr>
+    <td><b><%= (t('login.login')).capitalize %>:</b></td><td><%=h @user.login %></td>
+  </tr>
+  <tr>
+    <td colspan="2"><b><%= t('payrole.active') %></b></td><td><%= dkk(User.payrole(@user.id)) %></td>
+  </tr>
+</table>
+<% if Pay.user(@user.id).empty? or @user.places.empty? or @user.shifts.empty? %>
+    <span style="background-color:#FF4D4D">
+    <% if @user.pays.empty? %>
+          <%= t('pay.missing') %>!<br/>
+          * <%= t('create_atleast_one') %><br/>
+    <% end %>
+    <% if @user.places.empty? %>
+          <%= t('place.missing') %>!<br/>
+          * <%= t('create_atleast_one') %><br/>
+    <% end %>
+    <% if @user.shifts.empty? %>
+          <%= t('shift.missing') %>!<br/>
+          * <%= t('create_atleast_one') %><br/>
+    <% end %>
+    </span>
+<% end %>
+<%= render :partial => 'molds/shift_generator' -%>
+<big><%= (t('place.place')).capitalize %></big > (<%= @user.places.count %>) | <%= link_to t('all'), user_places_path(@user) %> |
+<%= link_to t('new'), new_user_place_path(@user) %> |
+<%= if !@user.places.empty? then show_box_for @user.places, :link_name=> t('place.show') end %>
+<% detail_box_for @user.places do %>
+    <%= hide_box_for @user.places, :link_name=> t('close_details') %>
+    <table>
+        <% for place in @user.places %>
+        <tr>
+            <td><%= link_to place.name, user_place_path(@user, place) %></td><td> | <%=  link_to t('edit'), edit_user_place_path(@user, place)%> | <% link_to t('destroy'), user_place_path(@user, place), :confirm => t('are_you_sure'), :method => :delete %></td>
+        </tr>
+        <% end %>
+    </table>
+ <% end %>
+<br/>
+<big><%= (t('pay.pays')).capitalize %></big> (<%= @user.pays.count %>) | <%= link_to t('all'), user_pays_path(@user) %> |
+<%= link_to (t('new')).capitalize, new_user_pay_path(@user) %> |
+<%= if !@user.pays.empty? then show_box_for @user.pays, :link_name=> t('pay.show') end%>
+<% if @user.pays.length < 3  %>
+ | <%= link_to t('pay.created_mold'), :controller => "builders", :action => "pay_kbu", :user_id => @user.id %>
+<% end %>
+<% detail_box_for @user.pays do %>
+    <%= hide_box_for @user.pays, :link_name=> t('close_details') %>
+        <table>
+            <% for pay in Pay.user(@user.id) %>
+            <tr>
+                <td><%= link_to pay.name, user_pay_path(@user, pay) %></td>
+                <td align="right"><%= dkk(pay.rate) %></td>
+                <td><%= link_to t('edit'), edit_user_pay_path(@user, pay) %></td>
+            </tr>
+            <% end %>
+        </table>
+    <% end %>
+<br/>
+<big><%= (t('shift.shifts')).capitalize %></big> (<%= @user.shifts.count %>) | <%= link_to t('all'), user_shifts_path(@user) %> | <%= link_to t('shift.new'), new_user_shift_path(@user) %>
+
+
+<% if @user.shifts.empty? %>
+        <%= t('shift.not_active') %>!
+    <% else %>
+    <div id="list">
+        <%= render :partial => 'shifts/shifts' -%>
+    </div>
+        
+<% end %>
+<%= render :partial => 'molds/shift_generator' -%>
+<%= link_to t('shift.new'), new_user_shift_path(@user) %>

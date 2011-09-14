@@ -1,0 +1,26 @@
+<%= tabnav :shift_actions %>
+<h1><%= t('payrole.listing') %></h1>
+
+<table>
+  <tr>
+    <th colspan="3">Shift</th>
+    
+    <th><%= (t('pay.pay')).capitalize %></th>
+  </tr>
+
+<% for payrole in @payroles %>
+  <tr>
+    <td><%= link_to payrole.shift.place.name, user_shift_payrole_path(@user,@shift,payrole) %></td>
+    <td><%= link_to dkktime(payrole.shift.start), user_shift_payrole_path(@user,@shift,payrole) %></td>
+    <td><%= link_to dkktime(payrole.shift.end), user_shift_payrole_path(@user,@shift,payrole) %></td>
+    <td><%=h payrole.pay.name %></td>
+    <td><%= link_to t('show'), user_shift_payrole_path(@user,@shift,payrole) %></td>
+    <td><%= link_to t('edit'), edit_user_shift_payrole_path(@user, @shift, payrole) %></td>
+    <td><%= link_to t('destroy'), user_shift_payrole_path(@user,@shift,payrole), :confirm => t('are_you_sure'), :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to t('payrole.new'), new_user_shift_payrole_path %>

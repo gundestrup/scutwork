@@ -1,0 +1,29 @@
+<% @shift_months.each do |month, shifts| %>
+        <table>
+          <h2><%= month.strftime("%B %Y") %></h2>
+          <tr>
+            <th><%= t('shift.hospitaltime') %></th>
+            <th><%= t('shift.timemoney') %></th>
+            <th>&nbsp;</th>
+            <th><%= t('shift.refunded') %></th>
+          </tr>
+            <% shifts.each do |shift| %>
+
+            <tr class="<%= Shift.payroletest(shift.id) %>"
+                id="shift_<%= shift.id %>"
+            >
+              <td><%= shift.place.name %><hr><%= link_to dkktime_short(shift.start)+'<br/>'+dkktime_short(shift.end), user_shift_path(@user, shift) %></td>
+              <td> (<%= hours(Shift.duration(shift.id)) %>)<%= t('hours') %><br/>
+                <%= dkk(Shift.paytotal(shift.id)) %>
+              </td>
+              <td>
+                <%= link_to t('edit'), edit_user_shift_path(@user, shift) %> |
+                <%= link_to t('destroy'), user_shift_path(@user, shift), :confirm => t('are_you_sure'), :method => :delete %>
+              </td>
+              <td align="center">
+                <%= check_box_tag "shift[shift_ids][]", shift.id, !shift.active?, :onchange => remote_function( :url => toggle_active_user_shifts_path(@user, shift), :with => "'id=#{shift.id}'", :update => "list" ) %>
+              </td>
+            </tr>
+              <% end %>
+        </table>
+<% end %>

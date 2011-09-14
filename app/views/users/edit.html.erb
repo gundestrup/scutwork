@@ -1,0 +1,38 @@
+<h1><%= t('users.edit') %></h1>
+
+<% form_for(@user) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :login %><br />
+    <%= f.text_field :login %>
+  </p>
+  <p>
+    <%= f.label :language %><br />
+   <%= @languages = Language.find(:all, :order => "name")
+        collection_select("user", "language_id", @languages, :id, :description ) %>
+  </p>
+    <p>
+    <%= f.label :normstart %><br />
+    <%= f.text_field :normstart %>
+  </p>
+    <p>
+    <%= f.label :norm_id %><br />
+    <%= f.text_field :norm_id %>|4 til 24 uger
+  </p>
+    
+  <p>
+    <%= f.submit t("update") %>
+  </p>
+<% end %>
+
+<%= link_to t('show'), @user %> |
+<%= link_to t('back'), users_path %>

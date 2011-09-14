@@ -1,0 +1,475 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+da:
+  ########################
+  # Generel expressiopns #
+  ########################
+  edit: "ret"
+  back: "tilbage"
+  destroy: "slet"
+  show: "vis"
+  hours: "timer"
+  are_you_sure: "Er du sikker?"
+  new: "ny"
+  all: "alle"
+  active: "aktiv"
+  active_not: "ikke aktiv"
+  description: "beskrivelse"
+  name: "navn"
+  add_hours: "tilføj timer"
+  start: "start"
+  end: "slut"
+  sum: "sum"
+  money: "penge"
+  email: "email"
+  feeds: "Feeds"
+  cancel: "Annuller"
+  submit: "Send"
+  reset: "Ret"
+  update: "Opdater"
+  create_atleast_one: "Du skal lave mindst ét"
+  close_details: "luk detaljer"
+  created_by: "Lavet af Svend Gundestrup"
+  report_problem: "Rapporter problemer"
+  report_problem_here: "her"
+  week: 'uge'
+  year: 'år'
+  month: 'måned'
+  normduration: 'normperiode'
+  start_date: "Start dato"
+  end_date: "Slut dato"
+  duration_weeks: 'Længde uger (dage)'
+  units: "Enheder"
+
+  ###################################
+  #    Controller & view text       #
+  ###################################
+
+  builder:
+    shift_created: "Vagt fra model, blev oprettet."
+    shift_created_error: "Fejl ved at oprette vagt fra model"
+
+  calendar:
+    incorrect_login: "Beklager forkert information"
+
+  configuration:
+    updated: "Konfigurationen er opdateret."
+    signup: "Bruger oprettelse"
+    login: "Bruger login"
+
+  error:
+    cant_access_information: "Du kan ikke få adgang til denne information på denne måde"
+    cant_access_others_information: "Hov, du må ikke kigge på andres information!"
+    no_access: "Hov, du har ikke adgang til dette område!"
+    login_disabled: "Login er inaktiveret, beklager"
+    signup_disabled: "Beklager, men login er inaktiveret"
+
+  help: #Choosen not to translate
+    getting_started:
+      header: "Kom i gang"
+      subheader: "Velkomme til Scutwork<br/>Her kan du få hjælp til at udregne din løn<br/>For at komme i gang skal du:"
+      places: "Dette er hvor du har arbejde, fx. et eller flere hospitaler<br/>Du skal oprette mindst ét."
+      places_header: "Opret nogle hospitaler"
+      saleries: "Dette er hvor du opretter de forskellige lønsatser<br/>Du skal oprette mindst én."
+      saleries_header: "Opret noget løn"
+      shifts_create: "Opret en vagt<br/>her vælger du start, <br/> og slut tidspunkt<br/> samt hvor du har arbejdet<br/>"
+      shifts_pay: "Så skal du oprette løn under vagten,<br/>timers løn"
+      shifts_header: "Nu er du parat til at komme i gang"
+      molds_header: "Opret en skabelon"
+      molds: "Dette er hvor du opretter standart skabeloner,<br/>som fx. en dagvagt fra 8 til 15<br/>Dette muliggører at du bare skal vælge en dato, <br/>og så opretter programmet fra skabeloner en vagt med det løn som du har defineret under skabelonen"
+    help:
+    history:
+
+  language:
+    new: "Nyt sprog"
+    listing: "Sprog liste"
+    updated: "Sprog blev rettet."
+    created: "Sprog blev oprettet."
+
+  login:
+    success: "Du er nu logget ind"
+    logout: "Du er nu logget ud."
+    login: "login"
+
+  mold:
+    mold: "Skabelon"
+    created: "Skabelon er oprettet."
+    updated: "Skabelon er opdateret."
+    new: "Ny skabelon"
+    list: "Skabelon liste"
+    name: "Navn"
+    user: "Bruger"
+    duration_and_pay: "Varighed og betaling"
+    time: "Tid"
+    duration: "Varighed"
+    add_pay_to_mold: "Tilføj løn til skabelonen"
+    shift_generator_head: "Lav vagt fra skabelon"
+    edit: "Ret skabelon"
+
+  pay:
+    pay: "Løn"
+    pays: "Løn"
+    created: "Løn er oprettet."
+    created_mold: "KBU løn fra skabelon oprettelse"
+    updated: "Løn er rettet."
+    new: "Ny løn"
+    edit: "Ret løn"
+    name: "Navn"
+    start_date: "Start dato"
+    end_date: "Slut dato"
+    active: "Aktiv"
+    rate: "Sats"
+    listing: "Løn oversigt"
+    description: "Beskrivelse"
+    missing: "Ingen løn fundet!"
+    show: "vis løn"
+    tip_rate: "hvis 175,75kr/time<br/>skriv 17575"
+    tip_description: "En beskrivelse af lønnen"
+    tip_name: "Lønnen navn"
+    tip_active: "Om lønnen er aktiv"
+    tip_time: "Vælg dato og tid.<br/>husk at tryk på -select"
+
+  paymaster:
+    created: "Løn til skabelon er oprettet."
+    updated: "Løn til skabelon er opdateret."
+    edit: "Ret Løn til skabelon"
+    new: "Ny Løn til skabelon"
+
+  payrole:
+    created: "Løn til vagt blev oprettet."
+    updated: "Løn til vagt blev opdateret."
+    new: "Ny løn til vagt"
+    edit: "Ret løn til vagt"
+    listing: "Liste over alle løn til vagter"
+    shift_start: "Vagt start"
+    shift_end: "Vagt slut"
+    active: "Løn til vagter (aktive)"
+    tip_hours: "825 betyder 815<br/>850 betyder 830<br/>875 betyder 845<br/>"
+
+  place:
+    place: "Hospital"
+    created: "Hospital er oprettet."
+    updated: "Hospital er rettet."
+    new: "Nyt hospital"
+    edit: "Ret hospital"
+    listing: "Hospitals liste"
+    shift_show: "Vis vagter"
+    missing: "Intet hospital fundet!"
+    show: "vis hospitaler"
+
+  session:
+    forgot_password: "Glemt kodeord?"
+    login: "Login"
+
+
+  shift:
+    shift: "Vagt"
+    shifts: "Vagter"
+    created: "Vagt er oprettet."
+    updated: "Vagt er rettet."
+    new: "Ny vagt (ikke fra skabelon)"
+    edit: "Ret vagt"
+    missing: "Ingen vagter oprettet!"
+    listing: "Vagt liste"
+    date_and_time: "Dato & Tid"
+    not_active: "Ingen aktive vagter fundet"
+    tip_hours: "825 betyder 815<br/>850 betyder 830<br/>875 betyder 845<br/>"
+    tip_place: "Vælg et tidligere oprettet hospital.<br/>Feltet har auto-complete"
+    tip_active: "hvis vagten er aktiv"
+    tip_time: "Vælg dato og tid.<br/>husk at tryk på -select"
+    hospitaltime: "Hospital/tidspunkt"
+    timemoney: "Timer/penge"
+    refunded: "Afregnet"
+    duration: "Varighed"
+
+  users:
+    signup_ok: "Tak for at du har oprettet dig som bruger!  Du vil modtage en mail med dine aktiveringskoder."
+    signup_error: "Vi kunne desværre ikke oprette dig som bruger. Prøv venligst igen, ellers kontakt en administrator."
+    signup_complete: "Oprettelse kompelt. Login for at fortsætte."
+    activation_missing: "Aktiverings koden mangler.  Brug den URL som du har fået i din email."
+    activation_wrong: "Jeg kunne desværre ikke finde en bruger med den aktiveringskode -- kontroler din email? Eller måske er du allerede aktiveret -- prøv at log ind på siden."
+    updated: "Brugeren er opdateret."
+    new: "Ny bruger"
+    edit: "Ret bruger"
+    listing: "Bruger liste"
+    reset_request: "Glemt kodeord formular"
+    signup: "Oprettelse"
+    feed_ical: "Ical"
+    feed_google: "Google Kalender"
+    feed_excel: "xls"
+    change_calendar_token: "Ændre ical token"
+    change_calendar_token_ok: "Ical token er ændret"
+    change_calendar_token_failed: "Ical token ændring fejlet"
+
+  reports:
+    head: 'Rapporter'
+    week_head: 'Uge'
+    month_head: 'Måned'
+    year_head: 'År'
+    norm_head: 'Norm'
+    hours_periode: 'Total arbejdstimer i perioden'
+    hours_to_weeks: 'Arbejdstimer svare til antal uger (37timer/uge)'
+
+  feed:
+    head: 'Fjern adgange'
+    expire: 'Udløber'
+    name: 'Navn'
+    new: 'Ny ekstern adgang'
+    help: 'Har kan du oprette midlertidig ekstern adgang til dine vagter. <br/>Kan fx. bruges til at sende et link til din vagtplanlægger/lønindtaster, så denne kan se dine indrapporteringer'
+    link: 'Links'
+    actions: 'Handlinger'
+
+
+  #####################
+  # Tab navigation    #
+  #####################
+  tab:
+    main:
+      home: "Hjem"
+      shifts: "Vagter"
+      logout: "Log af, "
+      admin: "Admin"
+      users: "Brugerer"
+      login: "Login"
+      signup: "Oprettelse"
+      help: "Hjælp"
+      reports: 'Rapporter'
+    help:
+      getting_started: "Kom i gang"
+      help: "Hjælp"
+      history: "Historie"
+    shift_actions:
+      shifts: "Vagter"
+      molds: "Skabeloner"
+      pays: "Løn"
+      places: "Hospitaler"
+    calendar:
+      remote: "Fjern adgang"
+
+
+  #####################
+  #    Numbers        #
+  #####################
+# active_support
+  date:
+    # See http://www.dsn.dk/oss_faq.htm#datoer and http://en.wikipedia.org/wiki/Date_formats
+    # either use traditional (2.10.03, 2. oktober 2003): "%e.%m.%y", "%e. %B %Y"
+    # or international ISO 8601 format (2003-10-20): "%Y-%m-%d"
+    formats:
+      default: "%d.%m.%Y"
+      short: "%e. %b %Y"
+      long: "%e. %B %Y"
+
+    day_names: [søndag, mandag, tirsdag, onsdag, torsdag, fredag, lørdag]
+    abbr_day_names: [sø, ma, ti, 'on', to, fr, lø]
+    month_names: [~, januar, februar, marts, april, maj, juni, juli, august, september, oktober, november, december]
+    abbr_month_names: [~, jan, feb, mar, apr, maj, jun, jul, aug, sep, okt, nov, dec]
+    order: [ :day, :month, :year ]
+
+  time:
+    formats:
+      default: "%e. %B %Y, %H:%M"
+      short: "%e. %b %Y, %H:%M"
+      long: "%A, %e. %B %Y, %H:%M"
+    am: ""
+    pm: ""
+
+  support:
+    array:
+      # Rails 2.2
+      #sentence_connector: "og"
+      #skip_last_comma: true
+      # Rails 2.3
+      words_connector: ", "
+      two_words_connector: " og "
+      last_word_connector: " og "
+    select:
+      # default value for :prompt => true in FormOptionsHelper
+      prompt: "Vælg..."
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "et halvt minut"
+      less_than_x_seconds:
+        one:  "mindre end et sekund"
+        other: "mindre end {{count}} sekunder"
+      x_seconds:
+        one:  "et sekund"
+        other: "{{count}} sekunder"
+      less_than_x_minutes:
+        one:  "mindre end et minut"
+        other: "mindre end {{count}} minutter"
+      x_minutes:
+        one:  "et minut"
+        other: "{{count}} minutter"
+      about_x_hours:
+        one:  "cirka en time"
+        other: "cirka {{count}} timer"
+      x_days:
+        one:  "en dag"
+        other: "{{count}} dage"
+      about_x_months:
+        one:  "cirka en måned"
+        other: "cirka {{count}} måneder"
+      x_months:
+        one:  "en måned"
+        other: "{{count}} måneder"
+      about_x_years:
+        one:  "cirka et år"
+        other: "cirka {{count}} år"
+      over_x_years:
+        one:  "mere end et år"
+        other: "mere end {{count}} år"
+      almost_x_years:
+        one:   "næsten et år"
+        other: "næsten {{count}} years"
+    prompts:
+      second: "Sekund"
+      minute: "Minut"
+      hour: "Time"
+      day: "Dag"
+      month: "Måned"
+      year: "År"
+
+  # action_view
+  number:
+    format:
+      separator: ","
+      delimiter: "."
+      precision: 3
+    currency:
+      format:
+        format: "%n %u"
+        unit: "kr"
+        separator: ","
+        delimiter: "."
+        precision: 2
+    precision:
+      format:
+        # separator:
+        delimiter: ""
+        # precision:
+    human:
+      format:
+        # separator:
+        delimiter: ""
+        precision: 1
+      # Rails 2.2
+      #storage_units: [Bytes, KB, MB, GB, TB]
+      # Rails 2.3
+      storage_units:
+        # Storage units output formatting.
+        # %u is the storage unit, %n is the number (default: 2 MB)
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+    percentage:
+      format:
+        # separator:
+        delimiter: ""
+        # precision:
+
+  # active_record
+  activerecord:
+  #####################
+  # Model tabel lames #
+  #####################
+
+    attributes:
+      configuration:
+        sign_up: "Oprettelse"
+        login: "Login"
+
+      language:
+        name: "Navn"
+        description: "Beskrivelse"
+
+      mold:
+        name: "Navn"
+        start_time: "Start tid"
+        end_time: "Slut tid"
+
+      paymaster:
+        hours: "timer"
+
+      payrole:
+        hours: "timer"
+
+      pay:
+        start_date: "Start dato"
+        end_date: "slut dato"
+        active: "aktiv"
+        name: "Navn"
+        description: "Beskrivelse"
+        rate: "sats"
+
+      place:
+        name: "Navn"
+
+      shift:
+        start: "Start"
+        end: "Slut"
+        active: "Aktiv"
+
+      user:
+        login: "Login"
+        name: "Navn"
+        email: "Email"
+        language: "Sprog"
+        password_confirmation: "Gentag kodeord"
+        password: "Kodeord"
+
+      session:
+        login: "Login"
+        password: "Kodeord"
+        remember_me: "Husk mig"
+
+      feed:
+        name: "Navn"
+        expire: "Udløber"
+        aktiv: "Aktiv"
+
+    errors:
+      messages:
+        inclusion: "er ikke i listen"
+        exclusion: "er reserveret"
+        invalid: "er ikke gyldig"
+        confirmation: "stemmer ikke overens"
+        accepted: "skal accepteres"
+        empty: "må ikke udelades"
+        blank: "skal udfyldes"
+        too_long: "er for lang (maksimum {{count}} tegn)"
+        too_short: "er for kort (minimum {{count}} tegn)"
+        wrong_length: "har forkert længde (skulle være {{count}} tegn)"
+        taken: "er allerede brugt"
+        not_a_number: "er ikke et tal"
+        greater_than: "skal være større end {{count}}"
+        greater_than_or_equal_to: "skal være større end eller lig med {{count}}"
+        equal_to: "skal være lig med {{count}}"
+        less_than: "skal være mindre end {{count}}"
+        less_than_or_equal_to: "skal være mindre end eller lig med {{count}}"
+        odd: "skal være ulige"
+        even: "skal være lige"
+        record_invalid: "Validering fejlede: {{errors}}"
+
+      template:
+        header:
+          one:   "En fejl forhindrede {{model}} i at blive gemt"
+          other:  "{{count}} fejl forhindrede denne {{model}} i at blive gemt"
+        body: "Der var problemer med følgende felter:"
+
+  activemodel:
+    errors:
+      template:
+        header:
+          one:   "En fejl forhindrede {{model}} i at blive gemt"
+          other:  "{{count}} fejl forhindrede denne {{model}} i at blive gemt"
+        body: "Der var problemer med følgende felter:"
+  

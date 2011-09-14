@@ -1,0 +1,22 @@
+<% form_for [@user, @shift, @payrole] do |f| %>
+  <%= f.error_messages %>
+    <table>
+      <tr>
+        <td><%= f.label :pay_id %></td><td><%= f.collection_select :pay_id, Pay.user(@user.id), :id, :name %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :hours %> (<%= hours(Shift.duration@shift.id) %>)</td>
+        <td>
+          <%= f.text_field :hours, :size => 4 %>
+            <% tooltip do %>
+                <p>
+                  <%= t('payrole.tip_hours') %>
+                </p>
+            <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2"><%= f.submit t('submit') %></td>
+      </tr>
+    </table>
+<% end %>

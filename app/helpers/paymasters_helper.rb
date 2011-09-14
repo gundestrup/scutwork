@@ -1,0 +1,2 @@
+module PaymastersHelper
+end

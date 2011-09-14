@@ -1,0 +1,3 @@
+<h1><%= params[:report][:week].to_date.strftime('%Y')%> <%= t('reports.week_head') %> <%= params[:report][:week].to_date.strftime('%W') %></h1>
+<%= render :partial => 'shifts' -%>
+<br/>

@@ -1,0 +1,35 @@
+<h4><%= t('help.getting_started.header') %></h4>
+    <p>
+      <%= t('help.getting_started.subheader') %>
+    </p>
+    <ol>
+
+        <li <%= if logged_in? and @user.places.empty? then 'style="color:red;"' end %> ><%= t('help.getting_started.places_header') %></li>
+            <ul>
+              <li>
+                <%= t('help.getting_started.places') %>
+              </li>
+            </ul>
+        <li <%= if logged_in? and @user.pays.empty? then 'style="color:red;"' end %> ><%= t('help.getting_started.saleries_header') %></li>
+            <ul>
+              <li>
+                <%= t('help.getting_started.saleries') %>
+              </li>
+            </ul>
+        <li <%= if logged_in? and @user.shifts.empty? then 'style="color:red;"' end %> ><%= t('help.getting_started.shifts_header') %></li>
+            <ol>
+              <li>
+                <%= t('help.getting_started.shifts_create') %>
+              </li>
+
+              <li>
+                <%= t('help.getting_started.shifts_pay') %>
+              </li>
+            </ol>
+      <li <%= if logged_in? and @user.molds.empty? then 'style="color:red;"' end %>><%= t('help.getting_started.molds_header') %></li>
+        <ul>
+          <li>
+            <%= t('help.getting_started.molds') %>
+          </li>
+        </ul>
+    </ol>

@@ -1,0 +1,39 @@
+<span class="adminbox">
+  <h3 style="color:red">Welcome to Scutwork</h3>
+  <ul>
+    <li>
+      What is Scutwork?<br/>
+      it's a place for recidens to help calculate their pay
+    </li>
+    <li>
+      What do I need to do?<br/>
+      signup or log in (if you already are a member)
+    </li>
+    <li>
+      How does it work?<br/>
+      Well you signup, to get an account.<br/>
+      Then you input your activities and your pay i calculated.
+    </li>
+    <li>
+      Who is behind it?<br/>
+      Svend Gundestrup is creator and programmer
+    </li>
+    <li>Scutwork means?<br/>
+      trivial, unrewarding, tedious, dirty, and disagreeable chores <a href="http://www.thefreedictionary.com/scut+work">source</a>
+    </li>
+  </ul>
+</span>
+<h1>Log In</h1>
+<% form_tag session_path do -%>
+<p><%= label_tag 'login' %><br />
+<%= text_field_tag 'login', @login %></p>
+
+<p><%= label_tag 'password' %><br/>
+<%= password_field_tag 'password', nil %></p>
+
+<p><%= label_tag 'remember_me', 'Remember me' %>
+<%= check_box_tag 'remember_me', '1', @remember_me %></p>
+
+<p><%= submit_tag t('session.login') %></p>
+<% end -%>
+<%= link_to t('session.forgot_password'), :forgot %>

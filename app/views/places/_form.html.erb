@@ -1,0 +1,11 @@
+<% form_for [@user, @place] do |f| %>
+  <%= f.error_messages %>
+  <table>
+    <tr>
+      <td><%= f.label :name %></td><td><%= f.text_field :name %></td>
+    </tr>    
+    <tr>
+      <td colspan="2"><%= f.submit t("submit") %></td>
+    </tr>
+  </table>
+<% end %>

@@ -1,0 +1,85 @@
+<%
+# this partial renders a tabnav, you can call it in your views with:
+#   <%= tabnav :user_actions % > (just the tabnav)
+# or, if you want a boxed tabnav:
+#   <% tabnav :user_actions do % >
+#     your html here
+#   <% end % >
+# (remove the space between % and >, we don't want to mess up your brand new tabnav :-))
+#
+# you can pass render_tabnav a few options:
+#   :generate_css => true|false #=> generates a default inline css for the tabnav, defaults to false
+#   :html => aHash #=> sets html options for the tabnav's div (es :html => {:class=> 'myCssClass', :id=>'myCssId'})
+#
+render_tabnav :shift_actions,
+              :generate_css => false do
+
+  # this generates a tab for every controller in your app
+  # you'll probably want to delete this and
+  # add tabs one by one as shown below
+
+
+  add_tab do |t|
+        t.named t('tab.shift_actions.shifts')
+        t.links_to user_shifts_path(@user)
+        t.highlights_on :controller => 'shifts'
+      end if logged_in? if @user.present?
+
+      add_tab do |t|
+        t.named t('tab.shift_actions.molds')
+        t.links_to user_molds_path(@user)
+        t.highlights_on :controller => 'molds'
+      end if logged_in? if @user.present?
+
+
+      #add_tab do |t|
+      #  t.named 'Payroles'
+      #  t.links_to user_shift_payroles_path(@user, @shift)
+       # t.highlights_on :controller => 'payroles'
+      #end if logged_in? if @user.present? if @shift.present?
+
+
+      add_tab do |t|
+        t.named t('tab.shift_actions.pays')
+        t.links_to user_pays_path(@user)
+        t.highlights_on :controller => 'pays'
+      end if logged_in? if @user.present?
+
+      add_tab do |t|
+        t.named t('tab.shift_actions.places')
+        t.links_to user_places_path(@user)
+        t.highlights_on :controller => 'places'
+      end if logged_in?
+  #
+  # you can use restful routes with:
+  #
+  #add_tab do |t|
+  #  t.named 'Users'
+  #  t.links_to hash_for_users_path
+  #end
+  #
+  #add_tab do |t|
+  #  t.named 'Customers'
+  #  t.links_to :controller => 'customers'
+  #end
+  #
+  # # A tab can be initialized with a Hash like this:
+  #
+  # add_tab :name => 'welcome', :link => {:controller=>'welcome'}
+  #
+  # # You can have a dynamic name or link
+  # # (this partial is evaluated in the page context, so it sees every helper or instance variable)
+  #
+  # add_tab do |t|
+  #   t.named "#{current_user} details"
+  #   t.links_to :controller => 'users', :action => 'show', :id => current_user.id
+  # end
+  #
+  # # You can have an image inside
+  #
+  # add_tab do |t|
+  #   t.named image_tag('test')
+  #   t.links_to :controller => 'users', :action => 'show', :id => current_user.id
+  # end
+end
+%>
